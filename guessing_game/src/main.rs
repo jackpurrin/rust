@@ -42,7 +42,8 @@ loop {
         // the guess.cmp part is the variable you wanna compare to the other input. {variable}.cmp({the varibale you wanna compare})
             Ordering::Less => println!("Too small!"), // if the guess was smaller than secret_number, say "Too small!"
             Ordering::Greater => println!("Too big!"), // if the guess was bigger than secret_number, say "Too big~"
-            Ordering::Equal => println!("You win!"), // if the guess was equal to the secret_number, say "You win!"
+            Ordering::Equal => println!("You win!");  // if the guess was equal to the secret_number, say "You win!"
+            break; // if you got it right, break the loop
         }
     }
 }
