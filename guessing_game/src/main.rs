@@ -26,5 +26,5 @@ fn main() { // main function of the program, all the code goes into here to get 
     // this is the last line of code. this outputs "You guessed: {guess}"
     // but how? the {} indicates that the second param, guess, should be placed here.
     // resulting in "You guessed: {number you guessed}"
-    prinntln!("You guessed: {secret_number}") // reapplying the principles from last line to this line
+    println!("You guessed: {secret_number}") // reapplying the principles from last line to this line
 }
