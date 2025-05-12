@@ -1,4 +1,5 @@
 use std::io; // imports the io lib from std, allows for strings and stuff
+use std::cmp::Ordering; // imports the ordering lib from std, allows us to compare values to each other
 use rand::Rng; // imports the rng lib from the rand library
 
 fn main() { // main function of the program, all the code goes into here to get run
