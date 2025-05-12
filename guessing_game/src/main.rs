@@ -26,5 +26,11 @@ fn main() { // main function of the program, all the code goes into here to get 
     // this is the last line of code. this outputs "You guessed: {guess}"
     // but how? the {} indicates that the second param, guess, should be placed here.
     // resulting in "You guessed: {number you guessed}"
-    println!("The secret number was: {secret_number}") // reapplying the principles from last line to this line
+    match guess.cmp(&secret_number) { 
+    // this is pretty much a function that compares something
+    // the guess.cmp part is the variable you wanna compare to the other input. {variable}.cmp({the varibale you wanna compare})
+        Ordering::Less => println!("Too small!"), // if the guess was smaller than secret_number, say "Too small!"
+        Ordering::Greater => println!("Too big!"), // if the guess was bigger than secret_number, say "Too big~"
+        Ordering::Equal => println!("You win!"), // if the guess was equal to the secret_number, say "You win!"
+    }
 }
