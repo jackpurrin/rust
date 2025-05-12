@@ -1,4 +1,5 @@
 use std::io; // imports the io lib from std, allows for strings and stuff
+use rand::Rng; // imports the rng lib from the rand library
 
 fn main() { // main function of the program, all the code goes into here to get run
     println!("Guess the number!"); // prints out a single line, "guess the number!" using a rust macro
