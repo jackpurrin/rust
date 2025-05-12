@@ -24,13 +24,15 @@ loop {
             // we pass through `&mut guess` to store the user input. 
             // this will store it in the previously defined `guess` variable. we add the &mut so it knows it's mutable.
             .expect("Failed to read line"); // error handling. if it fails to read, it'll output this.
-
-        let guess: u32 = guess.trim().parse().expect("Please type a number!"); 
+                    
+        let guess: u32 = match guess.trim().parse() {
         // we need to turn guess into a u32 number value, as we cannot compare a string and a number
         // .trim removes all whitespace at the end and at the start of the string.
-        // .parse tries to turn one value type into another. as defined, a string into a u32 value
-        // if we cannot turn the string into a u32 value, we're gonna assume the user entered a string not a number
-        // so we just say "Please type a number!" as our error handling
+            Ok(num) => num,
+            Err(_) => continue,
+        // if the parsing goes ok with no errors, set it into the guess variable.
+        // if it's bad, just move on. it'll be chill...
+        };
 
         println!("You guessed: {}", guess); 
         // this is the last line of code. this outputs "You guessed: {guess}"
@@ -42,8 +44,10 @@ loop {
         // the guess.cmp part is the variable you wanna compare to the other input. {variable}.cmp({the varibale you wanna compare})
             Ordering::Less => println!("Too small!"), // if the guess was smaller than secret_number, say "Too small!"
             Ordering::Greater => println!("Too big!"), // if the guess was bigger than secret_number, say "Too big~"
-            Ordering::Equal => { println!("You win!");  // if the guess was equal to the secret_number, say "You win!"
-            break; } // if you got it right, break the loop
+            Ordering::Equal => { 
+                println!("You win!");  // if the guess was equal to the secret_number, say "You win!"
+                break; // if you got it right, break the loop
+            } 
         }
     }
 }
